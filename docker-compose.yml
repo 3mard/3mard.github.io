@@ -1,0 +1,12 @@
+version: "3"
+services:
+  mozakarat:
+    build:
+      context: ./
+      dockerfile: ./dockerfile
+    image: mozakarat
+    volumes:
+      - ".:/src"
+    ports:
+      - "1313:1313"
+    entrypoint: /bin/bash -c "tail -f /dev/null"
