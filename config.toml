@@ -1,7 +1,8 @@
-baseURL = "http://example.com/"
+baseURL = "https://o-m.dev/"
 languageCode = "en-us"
 title = "Mozakarat"
 theme = "minimal"
+publishDir = "docs"
 googleAnalytics = ""
 
 [params]
