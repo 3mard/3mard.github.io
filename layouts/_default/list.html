@@ -1,0 +1,43 @@
+{{ define "main" }}
+
+<!-- Tag Title -->
+{{ if and .Title (eq .Type "tags") }}
+<h1 class="mb-24">{{ .Title }}</h1>
+{{ end }}
+
+<!-- $pages -->
+{{ $pages := union .RegularPages .Sections }}
+<!---->
+{{ if .IsHome }}
+<!---->
+{{ $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
+<!---->
+{{ end }}
+
+<!-- Articles -->
+{{ $paginator := .Paginate $pages }} {{ range $index, $page := $paginator.Pages
+}}
+<!---->
+
+<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
+    <h2 class="!my-0 pb-1 !leading-none">{{ .Title }}</h2>
+    <time class="text-sm opacity-60">{{ .Date | time.Format ":date_medium" }}</time>
+    <a class="absolute inset-0" href="{{ .Permalink }}"></a>
+</section>
+{{ end }}
+
+<!-- Main Nav -->
+{{ if gt $paginator.TotalPages 1 }}
+<nav class="mt-24 flex">
+    {{ if $paginator.HasPrev }}
+    <a class="btn" href="{{ $paginator.Prev.URL }}">← {{ i18n "prev_page" }}</a>
+    {{ end }}
+    <!---->
+    {{ if $paginator.HasNext }}
+    <a class="btn ml-auto" href="{{ $paginator.Next.URL }}">{{ i18n "next_page" }} →</a>
+    {{ end }}
+</nav>
+{{ end }}
+<!---->
+
+{{ end }}
