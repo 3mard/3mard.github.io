@@ -1,4 +1,4 @@
-baseURL = 'http://o-m.dev'
+baseURL = 'https://o-m.dev'
 languageCode = 'en-us'
 title = '/home/3mar'
 theme = 'hugo-paper'
