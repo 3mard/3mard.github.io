@@ -8,7 +8,7 @@ theme = 'hugo-paper'
   color = 'light'                 # linen, wheat, gray, light
 
   # header social icons
-  twitter = '_3mard'
+  twitter = '_3mard1'
   github = '3mard'
   rss = true                      # show rss icon with link
 
